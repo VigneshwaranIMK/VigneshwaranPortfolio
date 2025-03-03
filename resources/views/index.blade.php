@@ -7,7 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Portfolio</title>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        
+
         <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
@@ -272,18 +272,13 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="#">
-                        <input type="text" placeholder="Enter Your Name" required>
-                        <input type="email" placeholder="Enter Your Email" required>
-                        <input type="text" placeholder="Enter Your Subject" required>
-                        <textarea placeholder="Enter Your Message" required></textarea>
-                        <form action="{{ route('submit.form') }}" method="POST">
-                            {{ csrf_field() }} 
-                            <input type="text" name="name" placeholder="Enter Name" required>
-                            <input type="email" name="email" placeholder="Enter Email" required>
-                            <textarea name="message" placeholder="Enter Message" required></textarea>
-                            <button type="submit" class="submit">Submit</button>
-                        </form>                    </form>
+                    <form action="{{ route('submit.form') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="text" name="name" placeholder="Enter Name" required>
+                        <input type="email" name="email" placeholder="Enter Email" required>
+                        <textarea name="message" placeholder="Enter Message" required></textarea>
+                        <button type="submit" class="submit btn">Submit</button>
+                    </form>
                 </div>
             </div>
         </section>

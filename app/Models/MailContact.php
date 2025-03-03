@@ -10,4 +10,6 @@ class MailContact extends Model
 {
     protected $fillable = ['name', 'email', 'message'];
 
+    protected $table = 'contacts';
+
 }
