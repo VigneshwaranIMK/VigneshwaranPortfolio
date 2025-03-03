@@ -12,7 +12,7 @@ Route::get('/', function () {
 //     return view('index');
 // });
 
-Route::post('/send-message', [ContactController::class, 'submit'])->name('send.message');
+Route::post('/send-message', [ContactController::class, 'submit'])->name('submit.form');
 Route::get('/align-word', [WordController::class, 'alignWord']);
 
 

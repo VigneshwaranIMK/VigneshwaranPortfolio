@@ -13,7 +13,6 @@ class ContactController extends Controller
 {
     public function submit(Request $request)
     {
-        dd(1);
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string',
@@ -25,14 +24,13 @@ class ContactController extends Controller
             'email' => $request->input('email'),
             'message' => $request->input('message'),
         ]);
-
+        
         $data = [
             'name' => $contact->name,
             'email' => $contact->email,
             'message' => $contact->message,
         ];
-    
-        // Sending the email
+        
         Mail::send([], [], function ($message) use ($data) {
             $message->to('vigneshwaranimk@gmail.com')
                     ->subject("{$data['name']} Contacted via Portfolio")
@@ -43,7 +41,7 @@ class ContactController extends Controller
                         'text/html'
                     );
         });
-
+        
         return redirect()->back()->with('success', '🎉 Message successfully sent! 🎉');    
     }
 }
