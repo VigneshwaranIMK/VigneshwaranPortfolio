@@ -41,37 +41,63 @@
                 justify-content: flex-start;
                 gap: 40px;
                 width: 100%;
-                max-width: none;
                 margin: 0;
-                padding: 0 20px;
+                padding: 0 27px;
+                height: 100%;
             }
 
             .profile-photo {
-                width: 305px;
+                width: 315px;
                 height: 320px;
                 border-radius: 50%;
                 background-size: cover;
-                background-position: center;
                 background-repeat: no-repeat;
                 background-image: url(images/profile_pic.png);
                 border: 2px solid #ccc;
                 background-color: #000000;
                 flex-shrink: 0;
                 margin: 0;
+                /* position: absolute; */
+                /* This removes the element from normal flow */
+                z-index: 1;
+                /* Ensures the photo is in front */
+            }
+
+            .profile-text-container {
+                flex: 1;
+                /* padding-top: 25px;
+                padding-left: 137px; */
+                /* margin-left: 211px; */
+                /* height: 302px; */
+                background: radial-gradient(circle, #0d0de2, #feb47b);
+                /* margin-right: 312px; */
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                position: relative;
+                z-index: 0;
+                height: 100%;
+            }
+
+            .profile-title {
+                font-family: 'Playfair Display, Merriweather, Bitter';
+                font-size: 3rem;
+                margin-bottom: 20px;
+                color: #fff700;
+                /* Pleasant and modern color */
+                font-weight: 700;
+                /* Bold for emphasis */
+                animation: fadeInLetters 1.5s ease-in-out;
             }
 
             .profile-text {
                 flex: 1;
                 text-align: left;
-                color: #ffffff;
-                /* Bright white for better readability */
+                color: #fff203;
                 text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
                 font-style: normal;
                 font-size: 22px;
                 font-weight: 400;
-                /* Normal weight */
-                font-family: 'Lato', sans-serif;
-                /* Clean and legible */
+                font-family: 'Georgia, Crimson Text, Libre Baskerville';
                 animation: fadeInLetters 1.5s
             }
 
@@ -79,20 +105,8 @@
                 animation-delay: calc(var(--i) * 0.1s);
             }
 
-            .profile-title {
-                font-family: 'Montserrat', sans-serif;
-                /* Modern and geometric */
-                font-size: 3rem;
-                margin-bottom: 20px;
-                color: #007acc;
-                /* Pleasant and modern color */
-                font-weight: 700;
-                /* Bold for emphasis */
-                animation: fadeInLetters 1.5s ease-in-out;
-            }
-
             .profile-description {
-                color: rgb(6, 64, 255);
+                color: rgb(250, 250, 250);
             }
 
             .profile-title h1 span:nth-child(1) {
@@ -132,8 +146,9 @@
             }
 
             .highlight {
-                color: #eeff00;
-                font-style: italic;
+                color: #f1f1f1;
+                font-style: bold;
+                font-family: 'Montserrat, Poppins, Raleway, Lato';
             }
 
             .resume-buttons {
@@ -341,10 +356,6 @@
                 text-transform: uppercase;
             }
 
-            /* .projects h2 {
-                font-size: 32px;
-                background-image: url('images/bg4.jpg');
-            } */
             .project-grid {
                 display: flex;
                 background-image: url('images/bg4.jpg');
@@ -413,7 +424,7 @@
             .scroll-text {
                 font-size: 15px;
                 font-weight: bold;
-                color: #0430f5;
+                color: #f1f1f4;
                 font-family: 'Lora', serif;
             }
 
@@ -504,6 +515,32 @@
                 text-transform: uppercase;
             }
 
+            .download-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                color: white;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 12px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                transition: 0.3s ease-in-out;
+                box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+                font-size: 16px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background: linear-gradient(135deg, #2E7D32, #4CAF50);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(76, 175, 80, 0.5);
+            }
+
             @media screen and (max-width: 740px) {
                 .hero-container {
                     position: relative;
@@ -528,7 +565,7 @@
 
     <body>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-        <nav class="navbar position-absolute top-0 end-0 p-3">
+        <nav class="d-flex dropdown-item end-0 justify-content-end navbar p-3  top-0" style="background: rgba(0,0,0,0.5);">
             <div class="d-flex">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item me-3">
@@ -558,24 +595,46 @@
             <div class="profile-container">
                 <div class="profile-photo">
                 </div>
-                <div class="profile-text">
-                    <h1 class="profile-title">
-                        Hi I'm <span class="highlight">Vigneshwaran</span>
-                    </h1>
-                    <p class="profile-description">
-                        PHP - Laravel Full Stack Developer
-                    </p>
-                    <div class="resume-buttons">
-                        <a href="documents/Vigneshwaran_resume.pdf" class="btn download-btn">
-                            Download Resume
-                    </div>
-                    <div class="col-md-8">
-                        <div class="scroll-btn-container">
-                            <p class="scroll-text">Interested? Learn more below!</p>
-                            <a href="#about" class="btn scroll-btn">
-                                Scroll Down &nbsp; &nbsp; <i class="fas fa-arrow-down"></i>
+                <div class="profile-text-container">
+                    <div class="profile-text">
+                        <h1 class="profile-title">
+                            Hi I'm <span class="highlight">Vigneshwaran</span>
+                        </h1>
+                        <p class="profile-description">
+                            PHP - Laravel Full Stack Developer
+                        </p>
+                        <div class="col-md-8">
+                            <div class="scroll-btn-container">
+                                <p class="scroll-text">Interested? Learn more below!</p>
+                                <a href="#about" class="btn scroll-btn">
+                                    Scroll Down &nbsp; &nbsp; <i class="fas fa-arrow-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="resume-buttons">
+                            <a href="documents/Vigneshwaran_resume.pdf" class="tapering-button" download>
+                                <div class="tapering-button__start-content">
+                                    {{-- <img src="images/cloud download.png" class="tapering-button__icon-before"
+                                        alt="cloud-icon"> --}}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M7.646 10.854a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 9.293V5.5a.5.5 0 0 0-1 0v3.793L6.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383m.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                                          </svg>
+                                    <span>Resume</span>
+                                </div>
+                                <div class="tapering-button__final-content">
+                                    <img src="https://bato-web-agency.github.io/bato-shared/img/download-buttons/check-icon.svg"
+                                        class="tapering-button__icon-after" alt="check-icon">
+                                    <span>Downloaded</span>
+                                </div>
+                                <div class="tapering-button__loader"></div>
                             </a>
                         </div>
+
+                        {{-- <a href="documents/Vigneshwaran_resume.pdf" class="btn download-btn" download>
+                                <i class="fas fa-download"></i> Download Resume
+                            </a> --}}
+
                     </div>
                 </div>
             </div>
@@ -675,7 +734,8 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front skill">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="MySQL Logo" />
+                            <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg"
+                                alt="MySQL Logo" />
                             <span>MySQL</span>
                         </div>
                         <div class="flip-card-back skill-back skill-80" id="fuelLevel">
@@ -687,7 +747,7 @@
         </section>
         <section class="projects" id="projects">
             <div class="project-grid">
-                <div class="col-md-12">
+                <div class="col-md-24">
                     <h2>My Projects</h2>
                 </div>
                 <div class="project-card">
@@ -805,6 +865,101 @@
             });
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const button = document.querySelector(".tapering-button");
+
+                if (!button) return;
+
+                button.addEventListener("click", (event) => {
+                    if (button.classList.contains("completed")) return;
+
+                    event.preventDefault();
+                    button.classList.add("active");
+
+                    setTimeout(() => {
+                        button.classList.remove("active");
+                        button.classList.add("completed");
+
+                        // Simulate clicking the button again to allow download
+                        window.location.href = button.getAttribute("href");
+                    }, 3000);
+                });
+            });
+        </script>
+        <script src="js/app.js"></script>
     </body>
+    <style>
+        .tapering-button {
+            top: 10px;
+            margin-left: 78%;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 136px;
+            padding: 3px 0px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background: #0037ff;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3sease, background 0.3sease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+
+        .tapering-button:hover {
+            transform: scale(0.96);
+        }
+
+        .tapering-button.active {
+            background: #28a745;
+        }
+
+        .tapering-button.completed {
+            background: #28a745;
+        }
+
+        .tapering-button__loader {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: white;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 3s linear;
+        }
+
+        .tapering-button.active .tapering-button__loader {
+            transform: scaleX(1);
+        }
+
+        .tapering-button__icon-before,
+        .tapering-button__icon-after {
+            width: 24px;
+            margin-right: 8px;
+        }
+
+        .tapering-button__final-content {
+            display: none;
+        }
+
+        .tapering-button.completed .tapering-button__start-content {
+            display: none;
+        }
+
+        .tapering-button.completed .tapering-button__final-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
 
 </html>

@@ -214,4 +214,8 @@ return [
 
     'partitioned' => env('SESSION_PARTITIONED_COOKIE', false),
 
+
+    'rotate_csrf_token' => true,
+
+
 ];

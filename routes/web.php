@@ -2,9 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WordController;
+
 Route::get('/', function () {
-    return view('portfolio');
+    return view('index');
 });
 
-Route::post('/send-message', [ContactController::class, 'send'])->name('send.message');
+// Route::get('/index', function () {
+//     return view('index');
+// });
+
+Route::post('/send-message', [ContactController::class, 'submit'])->name('send.message');
+Route::get('/align-word', [WordController::class, 'alignWord']);
+
 
