@@ -11,9 +11,9 @@ use Symfony\Component\Mime\Message;
 
 class ContactController extends Controller
 {
-    public function send(Request $request)
+    public function submit(Request $request)
     {
-        // dd(1);
+        dd(1);
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string',
