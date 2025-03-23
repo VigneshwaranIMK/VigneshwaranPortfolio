@@ -39,10 +39,10 @@
                 <p>I'm a PHP web Developer with 6 months experience. My expertise is in HRMS Applications, Web Design,
                     Build ERP Softwares and much more....</p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/vigneshwaranimk/"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a id="github" target="_black"><i class="fab fa-linkedin"></i></a>
+                    <a id="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
-                <a href="#" class="btn">More About Me</a>
+                <a id="resume" target="_blank" class="btn">Download Resume &nbsp; <i class="fas fa-download"></i></a>
             </div>
             <div class="intro-image">
                 <img src="images/Vigneshwaran.jpeg" alt="Vigneshwaran">
@@ -51,7 +51,7 @@
 
         <section class="about" id="about">
             <div class="about-image">
-                <img src="images/Vigneshwaran.jpeg" alt="Vigneshwaran">
+                <img src="images/profile_ms.jpeg" alt="Vigneshwaran">
             </div>
             <div class="about-text">
                 <h2>About <span>Me</span></h2>
@@ -225,7 +225,7 @@
                     <div class="project-content">
                         <h3>IBM Project</h3>
                         <p>Analytics for Hospitals and Health-Care Data</p>
-                        <a href="#ibm-project" class="view-project">Click to View Full Project</a>
+                        <a href="https://github.com/VigneshwaranIMK/Vignesh-IBM.git" class="view-project">Click to View Full Project</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -265,10 +265,9 @@
                     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vigneshwaranimk"
                             target="_blank">linkedin.com/in/vigneshwaranimk</a></p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a id="github" target="_blank"><i class="fab fa-github"></i></a>
+                        <a id="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a id="linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -290,7 +289,8 @@
         <script src="js/script.js"></script>
         <!-- scripts -->
         <script src="js/particles.js"></script>
-        <script src="js/app.js"></script>
+        {{-- <script src="js/app.js"></script> --}}
+        
 
         <!-- stats.js -->
         <script src="js/lib/stats.js"></script>
